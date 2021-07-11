@@ -1,14 +1,14 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
     {name: 'license',
     message: 'Select kind of license for this application:',
     type: 'list',
-    choices: ["Academic Free License v3.0", "Apache license 2.0", "Artistic license 2.0", "Boost Software License 1.0", "BSD 2-clause \"Simplified\" license", "bsd-2-clause", "BSD 3-clause \"New\" or \"Revised\" license", "BSD 3-clause Clear license", "Creative Commons Zero v1.0 Universal", "Creative Commons Attribution 4.0", "Creative Commons Attribution Share Alike 4.0", "Educational Community License v2.0", "Eclipse Public License 1.0", "Eclipse Public License 2.0", "European Union Public License 1.1", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU General Public License v3.0",  "GNU Lesser General Public License v2.1", "GNU Lesser General Public License v3.0", "ISC", "LaTeX Project Public License v1.3c", "Microsoft Public License",  "MIT", "Mozilla Public License 2.0", "Open Software License 3.0", "PostgreSQL License", "SIL Open Font License 1.1", "University of Illinois/NCSA Open Source License", "The Unlicense", "zLib License"]},
+    choices: ["Academic Free License v3.0", "Apache license 2.0", "Artistic license 2.0", "Boost Software License 1.0", 'BSD 2-clause "Simplified" license', 'BSD 3-clause "New" or "Revised" license', "BSD 3-clause Clear license", "Creative Commons Zero v1.0 Universal", "Creative Commons Attribution 4.0", "Creative Commons Attribution Share Alike 4.0", "Educational Community License v2.0", "Eclipse Public License 1.0", "Eclipse Public License 2.0", "European Union Public License 1.1", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU General Public License v3.0",  "GNU Lesser General Public License v2.1", "GNU Lesser General Public License v3.0", "ISC", "LaTeX Project Public License v1.3c", "Microsoft Public License",  "MIT", "Mozilla Public License 2.0", "Open Software License 3.0", "PostgreSQL License", "SIL Open Font License 1.1", "University of Illinois/NCSA Open Source License", "The Unlicense", "zLib License"]},
     {name: 'title',
     message: 'What is the title of this application?',
     type: 'input'},
@@ -36,10 +36,42 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.appendFile(`${fileName}.md`, JSON.stringify(data), (err) =>
+    err ? console.error(err) : console.log('README has been generated.'))
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+async function init() {
+    await inquirer
+        .prompt(questions[0])
+        .then(answer => {console.log(answer.license)})
+    await inquirer
+        .prompt(questions[1])
+        .then(answer => {console.log(answer.title)})
+    await inquirer
+        .prompt(questions[2])
+        .then(answer => {console.log(answer.description)})
+    await inquirer
+        .prompt(questions[3])
+        .then(answer => {console.log(answer.install)})
+    await inquirer
+        .prompt(questions[4])
+        .then(answer => {console.log(answer.usage)})
+    await inquirer
+        .prompt(questions[5])
+        .then(answer => {console.log(answer.contributing)})
+    await inquirer
+        .prompt(questions[6])
+        .then(answer => {console.log(answer.testing)})
+    await inquirer
+        .prompt(questions[7])
+        .then(answer => {console.log(answer.username)})
+    await inquirer
+        .prompt(questions[8])
+        .then(answer => {console.log(answer.email)})
+
+}
 
 // Function call to initialize app
 init();
