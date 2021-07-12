@@ -41,7 +41,7 @@ function userInput(){
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.appendFile(`${fileName}.md`, JSON.stringify(data), 
+    fs.appendFile(`${fileName}.md`, data, 
     (err) => err ? console.error(err) : console.log(`${fileName}.md has been generated.`))
 }
 
