@@ -16,7 +16,9 @@
   [MIT](https://opensource.org/licenses/MIT)
 
   ## Description
-  This application is for the UofO Coding Bootcamp. It generates a comprehensive README file based on user input. 
+  This application is for the UofO Coding Bootcamp. It generates a comprehensive README file based on user input.   
+  [Homework Week 9 README Generator Site](https://reidk361.github.io/Homework-Week-9-README-Generator/)  
+  [Homework Week 9 README Generator Repository](https://github.com/reidk361/Homework-Week-9-README-Generator)  
 
   ## Installation
   Clone the repository. 
