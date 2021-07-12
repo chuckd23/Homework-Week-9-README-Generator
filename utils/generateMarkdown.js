@@ -231,7 +231,7 @@ function generateMarkdown(data) {
   ${data.contributing}
 
   ## Tests
-  ${data.test}
+  ${data.testing}
 
   ## Questions?
   ### Reach me here: 
