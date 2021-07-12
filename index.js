@@ -1,10 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const util = require('util');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-const questions = [
+function userInput(){
+    return inquirer.prompt([
     {name: 'license',
     message: 'Select kind of license for this application:',
     type: 'list',
@@ -33,46 +35,18 @@ const questions = [
     {name: 'email',
     message: 'What is your e-mail?',
     type: 'input'},
-];
+])};
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.appendFile(`${fileName}.md`, JSON.stringify(data), (err) =>
-    err ? console.error(err) : console.log('README has been generated.'))
+    fs.appendFile(`${fileName}.md`, JSON.stringify(data), 
+    (err) => err ? console.error(err) : console.log(`${fileName}.md has been generated.`))
 }
 
 // TODO: Create a function to initialize app
 async function init() {
-    let answers = []
-    await inquirer
-        .prompt(questions[0])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[1])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[2])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[3])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[4])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[5])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[6])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[7])
-        .then(answer => {answers.push(answer)})
-    await inquirer
-        .prompt(questions[8])
-        .then(answer => {answers.push(answer)})
-    const markdownText = await generateMarkdown({...answers});
-
+    let answers = await userInput();
+    console.log(answers);
 }
 
 // Function call to initialize app
