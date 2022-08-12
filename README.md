@@ -19,7 +19,7 @@
   This application is for the UofO Coding Bootcamp. It generates a comprehensive README file based on user input.  
   [Link to Example Video](https://drive.google.com/file/d/1yvTgNIv3KRAW5JEg1HjI3IrbktsGIz1_/view)  
   [Homework Week 9 README Generator Site](https://reidk361.github.io/Homework-Week-9-README-Generator/)  
-  [Homework Week 9 README Generator Repository](https://github.com/reidk361/Homework-Week-9-README-Generator)  
+  [Homework Week 9 README Generator Repository]https://github.com/chuckd23/HW9-Node.js-Challenge  
 
   ## Installation
   Clone the repository. 
